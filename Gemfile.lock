@@ -1,6 +1,7 @@
 GEM
   remote: https://gems.ruby-china.com/
   specs:
+    dotenv (2.8.1)
     hiredis (0.6.3)
     mustermann (3.0.0)
       ruby2_keywords (~> 0.0.1)
@@ -32,6 +33,7 @@ PLATFORMS
   arm64-darwin-21
 
 DEPENDENCIES
+  dotenv (~> 2.8, >= 2.8.1)
   ohm
   puma
   sinatra

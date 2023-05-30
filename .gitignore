@@ -11,8 +11,9 @@
 /tmp/
 
 # Used by dotenv library to load environment variables.
-# .env
-
+.env
+config/database.yml
+config/redis.yml
 # Ignore Byebug command history file.
 .byebug_history
 
