@@ -1,26 +1,38 @@
 GEM
   remote: https://gems.ruby-china.com/
   specs:
+    hiredis (0.6.3)
     mustermann (3.0.0)
       ruby2_keywords (~> 0.0.1)
+    nest (3.2.0)
+      redic
     nio4r (2.5.9)
+    ohm (3.1.1)
+      nest (~> 3)
+      redic (~> 1.5.0)
+      stal
     puma (6.2.2)
       nio4r (~> 2.0)
     rack (2.2.7)
     rack-protection (3.0.6)
       rack
+    redic (1.5.3)
+      hiredis
     ruby2_keywords (0.0.5)
     sinatra (3.0.6)
       mustermann (~> 3.0)
       rack (~> 2.2, >= 2.2.4)
       rack-protection (= 3.0.6)
       tilt (~> 2.0)
+    stal (0.3.0)
+      redic (~> 1.5)
     tilt (2.1.0)
 
 PLATFORMS
   arm64-darwin-21
 
 DEPENDENCIES
+  ohm
   puma
   sinatra
 
