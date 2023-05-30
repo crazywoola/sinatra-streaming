@@ -6,9 +6,9 @@ services:
     command: redis-server --appendonly yes
   web:
     build: .
-    command: puma -t 4:16 -w 2
+    command: puma -t 4:16 -w 2 -e production
+    # command: puma -e production
     ports:
       - "9292:9292"
     depends_on:
       - redis
-    

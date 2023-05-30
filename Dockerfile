@@ -14,9 +14,10 @@ RUN bundle install --binstubs
 COPY . .
 
 # Copy the config files
+COPY ./.env.example ./.env 
 COPY ./config/database.yml.example ./config/database.yml
 COPY ./config/redis.yml.example ./config/redis.yml
 
 EXPOSE 9292
 # Expose the desired port
-CMD [ "puma -t 4:16 -w 2" ]
+# CMD [ "puma -t 4:16 -w 2" ]
