@@ -16,4 +16,10 @@ class Api < Sinatra::Application
       out << "- dary!\n"
     end
   end
+
+  namespace "/users" do
+    get "/" do
+      "Hello world from users!"
+    end
+  end
 end
