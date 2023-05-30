@@ -1,5 +1,8 @@
 class Api < Sinatra::Application
+  enable :sessions, :logging
+
   get "/" do
+    session[:hello] = "world"
     "Hello world!"
   end
 
@@ -9,7 +12,7 @@ class Api < Sinatra::Application
       sleep 0.5
       out << " (wait for it) \n"
       sleep 1
-      out << "- dary!\n"
+      out << "- dary! #{session[:hello]}\n"
     end
   end
 
