@@ -5,6 +5,7 @@ GEM
     dotenv (2.8.1)
     hiredis (0.6.3)
     method_source (1.0.0)
+    multi_json (1.15.0)
     mustermann (3.0.0)
       ruby2_keywords (~> 0.0.1)
     nest (3.2.0)
@@ -31,6 +32,12 @@ GEM
       rack (~> 2.2, >= 2.2.4)
       rack-protection (= 3.0.6)
       tilt (~> 2.0)
+    sinatra-contrib (3.0.6)
+      multi_json
+      mustermann (~> 3.0)
+      rack-protection (= 3.0.6)
+      sinatra (= 3.0.6)
+      tilt (~> 2.0)
     stal (0.3.0)
       redic (~> 1.5)
     tilt (2.1.0)
@@ -46,6 +53,7 @@ DEPENDENCIES
   puma
   rake
   sinatra
+  sinatra-contrib
 
 BUNDLED WITH
    2.2.3

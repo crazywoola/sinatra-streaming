@@ -10,10 +10,11 @@ Dotenv.load
 # APP_ENV REDIS_ENV are global variables
 APP_ENV = ENV["RACK_ENV"] || "development"
 REDIS_ENV = YAML.load(File.read(File.expand_path("../config/redis.yml", __FILE__)), symbolize_names: true)
-puts "APP_ENV: #{APP_ENV}"
+
 # set up redis connection
 Ohm.redis = Redic.new(REDIS_ENV[APP_ENV.to_sym][:url])
-puts Ohm.redis.call("PING")
+
+puts "APP_ENV: #{APP_ENV} REDIS_STATUS: #{Ohm.redis.call("PING") rescue "REDIS DOWN"}"
 
 # require utils
 Dir["./app/utils/*.rb"].each { |file| require file }
