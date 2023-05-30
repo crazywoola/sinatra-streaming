@@ -7,3 +7,4 @@ gem "puma"
 
 gem "ohm"
 gem "pry"
+gem "rake"
