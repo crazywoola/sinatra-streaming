@@ -1,5 +1,6 @@
 # sinatra-streaming
-PoC: Ruby streaming using Sinatra
+
+Sinatra & Ohm
 
 ## Setup
 
@@ -10,3 +11,7 @@ cp ./config/redis.yml.example ./config/redis.yml
 ```
 
 ## Use Docker
+
+```
+docker compose up --build
+```

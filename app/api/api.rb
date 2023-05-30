@@ -3,10 +3,6 @@ class Api < Sinatra::Application
     "Hello world!"
   end
 
-  get "/json" do
-    json hello: :world
-  end
-
   get "/stream" do
     stream do |out|
       out << "It's gonna be legen -\n"
@@ -19,7 +15,7 @@ class Api < Sinatra::Application
 
   namespace "/users" do
     get "/" do
-      "Hello world from users!"
+      json users: [1, 2, 3]
     end
   end
 end
