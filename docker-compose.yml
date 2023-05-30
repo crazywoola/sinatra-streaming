@@ -3,8 +3,6 @@ services:
   redis:
     image: redis
     container_name: my-redis
-    volumes:
-      - ./data:./data
     command: redis-server --appendonly yes
   web:
     build: .
