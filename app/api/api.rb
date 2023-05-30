@@ -7,12 +7,14 @@ class Api < Sinatra::Application
   end
 
   get "/stream" do
+    str = session[:hello]
+
     stream do |out|
       out << "It's gonna be legen -\n"
       sleep 0.5
       out << " (wait for it) \n"
       sleep 1
-      out << "- dary! #{session[:hello]}\n"
+      out << "- dary! #{str}\n"
     end
   end
 
