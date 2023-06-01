@@ -1,8 +1,11 @@
-class User
-    def initialize(name)
-        @name = name
-    end
-    def echo
-        puts @name
-    end
+class User < Ohm::Model
+  attribute :name
+  index :name
+
+  def json
+    {
+      id: id,
+      name: name
+    }
+  end
 end

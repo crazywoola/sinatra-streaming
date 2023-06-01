@@ -1,8 +1,11 @@
 class Api < Sinatra::Application
   enable :sessions, :logging
 
+  before do
+    content_type 'application/json'
+  end
+  
   get "/" do
-    session[:hello] = "world"
     "Hello world!"
   end
 
@@ -18,9 +21,20 @@ class Api < Sinatra::Application
     end
   end
 
-  namespace "/users" do
-    get "/" do
-      json users: [1, 2, 3]
+  namespace "/api/v1" do
+    get '/users' do
+      users = User.all.map(&:json)
+      json users
+    end
+
+    get "/users/:id" do |id|
+      user = User[id]
+      json user.json
+    end
+
+    post '/users' do 
+      user = User.create(name: params[:name])
+      json user.json
     end
   end
 end
