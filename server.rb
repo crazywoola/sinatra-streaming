@@ -16,11 +16,21 @@ Ohm.redis = Redic.new(REDIS_ENV[APP_ENV.to_sym][:url])
 
 puts "APP_ENV: #{APP_ENV} REDIS_STATUS: #{Ohm.redis.call("PING") rescue "REDIS DOWN"}"
 
-# require utils
-Dir["./app/utils/*.rb"].each { |file| require file }
-# require models
-Dir["./app/models/*.rb"].each { |file| require file }
-# require services
-Dir["./app/services/*.rb"].each { |file| require file }
-# require api
-Dir["./app/api/*.rb"].each { |file| require file }
+module Application
+  module Utils
+    Dir.glob("./app/utils/*.rb").each { |file| require file }
+  end
+
+  module Models
+    Dir.glob("./app/models/*.rb").each { |file| require file }
+  end
+
+  module Services
+    Dir.glob("./app/services/*.rb").each { |file| require file }
+  end
+
+  module API
+    Dir.glob("./app/api/*.rb").each { |file| require file }
+  end
+end
+  
