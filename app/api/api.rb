@@ -25,7 +25,7 @@ class Api < Sinatra::Application
       sleep 0.5
       out << " (wait for it) \n"
       sleep 1
-      out << "- dary! #{str}\n"
+      out << "-- dary! #{str}\n"
     end
   end
 

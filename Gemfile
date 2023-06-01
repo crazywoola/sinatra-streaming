@@ -10,3 +10,7 @@ gem "puma"
 gem "ohm"
 gem "pry"
 gem "rake"
+
+group :development, :test do
+  gem "rerun"
+end
