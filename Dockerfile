@@ -10,14 +10,12 @@ COPY Gemfile Gemfile.lock ./
 # Install dependencies
 RUN bundle install --binstubs
 
-# Copy the rest of the application code to the working directory
+# Copy the rest of the applica tion code to the working directory
 COPY . .
 
 # Copy the config files
-COPY ./.env.example ./.env 
-COPY ./config/database.yml.example ./config/database.yml
-COPY ./config/redis.yml.example ./config/redis.yml
+RUN chmod +x bin/setup && ./bin/setup
 
 EXPOSE 9292
 # Expose the desired port
-# CMD [ "puma -t 4:16 -w 2" ]
+CMD [ "puma -t 4:16 -w 2" ]
