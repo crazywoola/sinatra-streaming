@@ -4,7 +4,15 @@ class Api < Sinatra::Application
   before do
     content_type 'application/json'
   end
-  
+
+  def json_params
+    begin
+      JSON.parse(request.body.read)
+    rescue
+      halt 400, { message:'Invalid JSON' }.to_json
+    end
+  end
+
   get "/" do
     "Hello world!"
   end
